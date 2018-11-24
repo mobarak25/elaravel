@@ -60,4 +60,5 @@ Route::get('/edit-product/{id}', 'ProductController@edit_product');
 Route::get('/add-slider', 'SliderController@index');
 Route::post('/save-slider', 'SliderController@save_slider');
 Route::get('/all-slider', 'SliderController@all_slider');
-Route::get('/edit-slider/{id}', 'SliderController@edit_slider');
+Route::get('/active_unactive_slider/{id}', 'SliderController@slider_status');
+Route::get('/delete-slider/{id}', 'SliderController@delete_slider');

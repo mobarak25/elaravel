@@ -49,22 +49,29 @@ class MyController extends Controller{
     	return $products;
 	}
 
-    public function get_slider(){
-        $sliders = DB::table('tbl_slider')->get();
+    public function get_slider($publishedOnly){
+        if( $publishedOnly == 'publishedOnly' ){
+
+            $sliders = DB::table('tbl_slider')->where('publication_status',1)->get();
+        }else{
+            $sliders = DB::table('tbl_slider')->get();
+        }
         return $sliders;
     }
 
-	protected function get_image($folder, $imges){
-		$imgURL = array();
-		foreach ($imges as $image) {
-			$originalImage  = $image->getClientOriginalName();
-			$unicImage      = mt_rand().$originalImage;
-			$folder         = $folder.'/';
-			$movePicture    = $image->move($folder, $unicImage);
-			$imgURL[]       = $folder.$unicImage;
-		}
+    protected function get_image($folder, $imges){
+        $imgURL = array();
+        foreach ($imges as $image) {
+            $originalImage  = $image->getClientOriginalName();
+            $unicImage      = mt_rand().$originalImage;
+            $folder         = $folder.'/';
+            $movePicture    = $image->move($folder, $unicImage);
+            $imgURL[]       = $folder.$unicImage;
+        }
 
-    	return json_encode($imgURL);
-	}
+        return json_encode($imgURL);
+    }
+
+	
     
 }

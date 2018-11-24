@@ -34,6 +34,7 @@
 						<th>Slider Title</th>
 						<th>Slider Suntitle</th>
 						<th>Slider Description</th>
+						<th>Slider Image</th>
 						<th><div style="width: 150px">Actions</div></th>
 					</tr>
 				</thead>
@@ -47,15 +48,21 @@
 							<td class="center">{{$slider->slider_title}}</td>
 							<td class="center">{{$slider->slider_subtitle}}</td>
 							<td class="center">{!!$slider->slider_description!!}</td>
+							<td class="center">
+								<img src="{{json_decode($slider->slider_image)[0]}}" alt="">
+							</td>
 							
 							<td class="center">
 								
-								<a class="btn btn-info" href="{{url('/edit-slider/'.$slider->slider_id)}}">
-									<i class="halflings-icon white edit"></i>
-								</a>
-								<a class="btn btn-danger" id="delete" href="{{url('/delete-category/'.$slider->slider_id)}}">
-									<i class="halflings-icon white trash"></i>
-								</a>
+								<div style="width: 130px;">
+									<a class="btn {{($slider->publication_status == 1)? 'btn-danger':'btn-success'}}" href="{{url('/active_unactive_slider/'.$slider->slider_id)}}">
+										<i class="halflings-icon white {{($slider->publication_status == 1)? 'thumbs-down':'thumbs-up'}}"></i>
+									</a>
+									
+									<a class="btn btn-danger" id="delete" href="{{url('/delete-slider/'.$slider->slider_id)}}">
+										<i class="halflings-icon white trash"></i>
+									</a>
+								</div>
 							</td>
 						</tr>
 					@endforeach

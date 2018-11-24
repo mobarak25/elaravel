@@ -29,13 +29,24 @@ class SliderController extends Mycontroller{
 	}
 
 	public function all_slider(){
-		return view('/admin.all_slider',['sliders'=>$this->get_slider()]);
+		return view('/admin.all_slider',['sliders'=>$this->get_slider('all')]);
 	}
 
-	public function edit_slider($id){
-		$slider = DB::table('tbl_slider')->where('slider_id',$id)->first();
+	
 
-		return view('/admin.edit_slider',['slider'=>$slider]);
+	public function slider_status($id){
+		$get_row = DB::table('tbl_slider')
+                ->where('slider_id',$id)
+                ->value('publication_status');
+        
+        $get_row = ($get_row == 1) ? 0:1;
+        DB::table('tbl_slider')->where('slider_id',$id)->update(['publication_status'=>$get_row]);
+        return redirect('/all-slider');
+	}
+
+	public function delete_slider($id){
+		DB::table('tbl_slider')->where('slider_id',$id)->delete();
+		return redirect('/all-slider');
 	}
     
 }

@@ -9,6 +9,8 @@
 /*scroll to top*/
 
 $(document).ready(function(){
+	$('.carousel-inner .item:first-child').addClass('active');
+
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID

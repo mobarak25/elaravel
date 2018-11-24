@@ -14,6 +14,7 @@ class HomeController extends MyController{
                'categories'=> $this->get_category(),
                'menufactures'=> $this->get_manufacture(),
                'products'=> $this->get_allproduct('publishedOnly'),
+               'sliders'=> $this->get_slider('publishedOnly'),
             ]
         );
     }
