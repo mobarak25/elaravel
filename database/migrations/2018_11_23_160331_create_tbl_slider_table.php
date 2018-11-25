@@ -20,6 +20,7 @@ class CreateTblSliderTable extends Migration
             $table->text('slider_description');
             $table->string('slider_btnlink',200);
             $table->string('slider_image');
+            $table->tinyInteger('publication_status');
             $table->timestamps();
         });
     }
