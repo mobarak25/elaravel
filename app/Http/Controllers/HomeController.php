@@ -12,7 +12,12 @@ class HomeController extends MyController{
     }
 
     public function product_by_category($id){
-        return view('pages.product_by_category');
+        $products = DB::table('tbl_products')
+                  ->where('tbl_products.category_id',$id)
+                  ->limit(9)
+                  ->get();
+        
+        return view('pages.product_by_category',['products'=>$products]);
 
     }
 }
