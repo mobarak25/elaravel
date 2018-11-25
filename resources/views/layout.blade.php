@@ -1,3 +1,7 @@
+@php
+    use App\Http\Controllers\MyController;
+    $getData = new MyController;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -155,6 +159,9 @@
                         </ol>
                         
                         <div class="carousel-inner">
+                            @php
+                                $sliders = $getData->get_slider('publishedOnly');
+                            @endphp
                             @foreach($sliders as $slider)
                             <div class="item">
                                 <div class="col-sm-6">
@@ -164,14 +171,11 @@
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="{{json_decode($slider->slider_image)[0]}}" class="girl img-responsive" alt="" />
+                                    <img src="{{url(json_decode($slider->slider_image)[0])}}" class="girl img-responsive" alt="" />
                                     
                                 </div>
                             </div>
                             @endforeach
-                            
-                            
-                           
                             
                         </div>
                         
@@ -195,11 +199,14 @@
                     <div class="left-sidebar">
                         <h2>Category</h2>
                         <div class="panel-group category-products" id="accordian">
-
+                            
+                            @php
+                                $categories = $getData->get_category();
+                            @endphp
                             @foreach ($categories as $category)
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">{{$category->category_name}}</a></h4>
+                                        <h4 class="panel-title"><a href="{{ url('product-by-category/'.$category->category_id) }}">{{$category->category_name}}</a></h4>
                                     </div>
                                 </div>
                             @endforeach
@@ -210,6 +217,9 @@
                             <h2>Brands</h2>
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
+                                    @php
+                                        $menufactures = $getData->get_manufacture();
+                                    @endphp
                                     @foreach($menufactures as $menufacture)
                                         <li><a href="#"> <span class="pull-right">(50)</span>{{$menufacture->manufacture_name}}</a></li>
                                     @endforeach

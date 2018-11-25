@@ -8,14 +8,11 @@ use DB;
 class HomeController extends MyController{
     public function index(){
 
-    	return view('pages.home_content')->with(
-            [
-            
-               'categories'=> $this->get_category(),
-               'menufactures'=> $this->get_manufacture(),
-               'products'=> $this->get_allproduct('publishedOnly'),
-               'sliders'=> $this->get_slider('publishedOnly'),
-            ]
-        );
+    	return view('pages.home_content');
+    }
+
+    public function product_by_category($id){
+        return view('pages.product_by_category');
+
     }
 }

@@ -8,7 +8,7 @@ use DB;
 
 class MyController extends Controller{
 
-	protected function get_category(){
+	public function get_category(){
 		$categories = DB::table('tbl_category')
     				->where('publication_status',1)
     				->get();
@@ -16,7 +16,7 @@ class MyController extends Controller{
     	return $categories;
 	}
 
-	protected function get_manufacture(){
+	public function get_manufacture(){
     	$menufactures = DB::table('tbl_manufacture')
     				  ->where('publication_status',1)
     				  ->get();
@@ -24,7 +24,7 @@ class MyController extends Controller{
     	return $menufactures;
 	}
 
-	protected function get_allproduct($publishedOnly){
+	public function get_allproduct($publishedOnly){
 
 		if( $publishedOnly == 'publishedOnly' ){
     	$products = DB::table('tbl_products')
@@ -59,7 +59,7 @@ class MyController extends Controller{
         return $sliders;
     }
 
-    protected function get_image($folder, $imges){
+    public function get_image($folder, $imges){
         $imgURL = array();
         foreach ($imges as $image) {
             $originalImage  = $image->getClientOriginalName();

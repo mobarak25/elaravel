@@ -14,6 +14,7 @@
 
 //Frontend Route................................................................
 Route::get('/', 'HomeController@index');
+Route::get('/product-by-category/{id}', 'HomeController@product_by_category');
 
 
 

@@ -1,8 +1,15 @@
+@php
+    use App\Http\Controllers\MyController;
+    $getData = new MyController;
+@endphp
 @extends('layout')
 
 @section('content')
 <div class="features_items"><!--features_items-->
     <h2 class="title text-center">Features Items</h2>
+    @php
+        $products = $getData->get_allproduct('all');
+    @endphp
     @foreach($products as $product)
         <div class="col-sm-4">
             <div class="product-image-wrapper">

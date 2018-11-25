@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 session_start();
+
 class AdminController extends Controller{
     public function index(){
     	return view('admin_login');
