@@ -219,9 +219,11 @@
                                 <ul class="nav nav-pills nav-stacked">
                                     @php
                                         $menufactures = $getData->get_manufacture();
+                                        //print_r($menufactures);
+                                        //exit();
                                     @endphp
                                     @foreach($menufactures as $menufacture)
-                                        <li><a href="{{ url('/product-by-manufacture/'.$menufacture->manufacture_id) }}"> <span class="pull-right">(50)</span>{{$menufacture->manufacture_name}}</a></li>
+                                        <li><a href="{{ url('/product-by-manufacture/'.$menufacture->manufacture_id) }}"> <span class="pull-right">({{ $menufacture->total_product }})</span>{{$menufacture->manufacture_name}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
