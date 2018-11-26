@@ -14,10 +14,19 @@ class HomeController extends MyController{
     public function product_by_category($id){
         $products = DB::table('tbl_products')
                   ->where('tbl_products.category_id',$id)
-                  ->limit(9)
+                  ->limit(18)
                   ->get();
         
         return view('pages.product_by_category',['products'=>$products]);
+    }
+
+    public function product_by_manufacture($id){
+        $manefacturs = DB::table('tbl_products')
+                  ->where('tbl_products.menufacture_id',$id)
+                  ->limit(18)
+                  ->get();
+        
+        return view('pages.product_by_manufacture',['manefacturs'=>$manefacturs]);
     }
 
 

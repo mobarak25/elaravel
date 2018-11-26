@@ -221,7 +221,7 @@
                                         $menufactures = $getData->get_manufacture();
                                     @endphp
                                     @foreach($menufactures as $menufacture)
-                                        <li><a href="#"> <span class="pull-right">(50)</span>{{$menufacture->manufacture_name}}</a></li>
+                                        <li><a href="{{ url('/product-by-manufacture/'.$menufacture->manufacture_id) }}"> <span class="pull-right">(50)</span>{{$menufacture->manufacture_name}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>

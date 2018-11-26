@@ -23,7 +23,6 @@ class MyController extends Controller{
 
     	return $menufactures;
 	}
-
 	public function get_allproduct($publishedOnly){
 
 		if( $publishedOnly == 'publishedOnly' ){
