@@ -59,6 +59,18 @@
 							<input type="text" class="input-xlarge" name="btn_link">
 						</div>
 					</div>
+					<div class="control-group">
+							<label class="control-label">Publication Status</label>
+							<div class="controls">
+								<label class="radio">
+									<input type="radio" name="publication_status" value="1" checked="">Published
+								</label>
+								<br>
+								<label class="radio">
+									<input type="radio" name="publication_status"value="0">Unpublish
+								</label>
+							</div>
+						</div>
 					<div class="form-actions">
 						<button type="submit" class="btn btn-primary">Add Slider</button>
 					</div>

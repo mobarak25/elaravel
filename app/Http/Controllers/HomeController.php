@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 
 class HomeController extends MyController{
+  
     public function index(){
-
     	return view('pages.home_content');
     }
 
@@ -18,6 +18,7 @@ class HomeController extends MyController{
                   ->get();
         
         return view('pages.product_by_category',['products'=>$products]);
-
     }
+
+
 }

@@ -21,8 +21,9 @@ class SliderController extends Mycontroller{
 		$data['slider_title']        =  $request->slider_title;
 		$data['slider_subtitle']     =  $request->slider_subtitle;
 		$data['slider_description']  =  $request->slider_description;
-		$data['slider_image']        =  $image;
 		$data['slider_btnlink']      =  $request->btn_link;
+		$data['slider_image']        =  $image;
+		$data['publication_status']  =  $request->publication_status;
 
 		DB::table('tbl_slider')->insert($data);
 		return redirect('/add-slider')->with('message','Slider Inserted Successfully.');

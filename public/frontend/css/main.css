@@ -2520,4 +2520,10 @@ h2.title {
   color: #FE980F;
 }
 
+/* Added By Mobarak */
+.notFound{
+  text-align: center;
+  padding: 50px 0;
+}
+
 

@@ -23,6 +23,7 @@ Route::get('/product-by-category/{id}', 'HomeController@product_by_category');
 
 
 
+
 //Backend Route.................................................................
 Route::get('/logout', 'SuperAdminController@logout');
 Route::get('/admin', 'AdminController@index');
@@ -38,7 +39,6 @@ Route::get('/active_unactive_cat/{id}', 'CategoryController@category_status');
 Route::get('/edit-category/{id}', 'CategoryController@edit_category');
 Route::post('/update-category/{id}', 'CategoryController@update_category');
 Route::get('/delete-category/{id}', 'CategoryController@delete_category');
-
 
 //Manufacture related Route........................................................
 Route::get('/add-manufacture', 'ManufactureController@index');
