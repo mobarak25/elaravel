@@ -19,20 +19,14 @@ class MyController extends Controller{
 	public function get_manufacture(){
 
         $menufactures = DB::table('tbl_manufacture')
-        
         ->join('tbl_products','tbl_manufacture.manufacture_id','=','tbl_products.menufacture_id')
-
         ->select(DB::raw('count(*) as total_product'),'tbl_manufacture.*', 'tbl_products.menufacture_id')
-
         ->groupBy('tbl_products.menufacture_id')
-        
-
-        
-
         ->get();
 
         return $menufactures;
 	}
+    
 	public function get_allproduct($publishedOnly){
 
 		if( $publishedOnly == 'publishedOnly' ){
