@@ -2,12 +2,8 @@
 @section('content')
 <div class="product-details"><!--product-details-->
 
-
-
-
 <div class="col-sm-5">
 	<div class="view-product">
-		
 		<img src="{{url(json_decode($product->product_image)[0])}}" alt="" />
 		<h3>ZOOM</h3>
 	</div>
@@ -19,15 +15,11 @@
 			@foreach ($productSlides->chunk(3) as $chunk)
 			    <div class="item">
 			        @foreach ($chunk as $productItm)
-
-			            <a href=""><img src="{{url(json_decode($productItm->product_image)[0])}}" alt="" width="85"></a>
+			            <a href="{{ url('/view-product/'.$productItm->category_id) }}"><img src="{{url(json_decode($productItm->product_image)[0])}}" alt="" width="85"></a>
 
 			        @endforeach
 			    </div>
 			@endforeach
-			
-			
-			
 		</div>
 		<!-- Controls -->
 		<a class="left item-control" href="#similar-product" data-slide="prev">
