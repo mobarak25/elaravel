@@ -41,12 +41,16 @@
 	<img src="{{url('frontend/images/product-details/rating.png')}}" alt="" />
 	<span>
 		<span>BDT. {{$product->product_price}}</span>
-		<label>Quantity:</label>
-		<input type="text" value="{{$product->product_price}}" />
-		<button type="button" class="btn btn-fefault cart">
-		<i class="fa fa-shopping-cart"></i>
-		Add to cart
-		</button>
+		<form action="{{ url('/add-to-cart') }}" method="post" style="display: inline-block;">
+			@csrf
+			<label>Quantity:</label>
+			<input type="text" name="qty" value="1" />
+			<input type="hidden" name="product_id" value="{{$product->product_id}}">
+			<button type="submit" class="btn btn-fefault cart">
+			<i class="fa fa-shopping-cart"></i>
+			Add to cart
+			</button>
+		</form>
 	</span>
 	<p><b>Availability:</b> In Stock</p>
 	<p><b>Brand:</b> {{$product->mName}}</p>

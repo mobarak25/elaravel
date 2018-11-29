@@ -30,7 +30,7 @@
                         <div class="overlay-content">
                             <h2>${{$product->product_price}}</h2>
                             <p><a href="{{ url('view-product/'.$product->product_id) }}"> {{$product->product_name}}</a></p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            <a href="{{ url('view-product/'.$product->product_id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
                     </div>
                 </div>

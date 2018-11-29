@@ -17,6 +17,9 @@ Route::get('/', 'HomeController@index');
 Route::get('/product-by-category/{id}', 'HomeController@product_by_category');
 Route::get('/product-by-manufacture/{id}', 'HomeController@product_by_manufacture');
 Route::get('/view-product/{id}', 'HomeController@view_product');
+Route::post('/add-to-cart', 'CartController@add_to_cart');
+Route::post('/add-to-cart', 'CartController@add_to_cart');
+Route::get('/show-cart', 'CartController@show_cart');
 
 
 
