@@ -20,6 +20,7 @@ Route::get('/view-product/{id}', 'HomeController@view_product');
 Route::post('/add-to-cart', 'CartController@add_to_cart');
 Route::post('/add-to-cart', 'CartController@add_to_cart');
 Route::get('/show-cart', 'CartController@show_cart');
+Route::get('/delete-cart/{id}', 'CartController@delete_cart');
 
 
 

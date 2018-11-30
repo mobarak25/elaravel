@@ -55,7 +55,7 @@ $getData = new MyController;
                                     <p class="cart_total_price">{{$v_contents->total()}}</p>
                                 </td>
                                 <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                    <a class="cart_quantity_delete" href="{{ url('/delete-cart/'.$v_contents->rowId) }}"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                         @endforeach

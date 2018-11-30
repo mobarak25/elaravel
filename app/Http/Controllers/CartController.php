@@ -42,6 +42,12 @@ class CartController extends Controller{
     	return view('pages.add_to_cart')->with('all_published_category',$all_published_category);
     }
 
+    public function delete_cart($id){
+        Cart::update($id, 0);
+
+        return redirect('/show-cart');
+    }
+
 
 
 }
