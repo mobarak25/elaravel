@@ -39,16 +39,20 @@ $getData = new MyController;
                                     <a href=""><img src="{{$v_contents->options->image}}" alt="" width="80"></a>
                                 </td>
                                 <td class="cart_description">
-                                    <h4><a href="">{{$v_contents->name}}</a></h4>
+                                    {{$v_contents->name}}
                                 </td>
                                 <td class="cart_price">
                                     <p>{{$v_contents->price}}</p>
                                 </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
-                                        <a class="cart_quantity_up" href=""> + </a>
-                                        <input class="cart_quantity_input" type="text" name="quantity" value="{{$v_contents->qty}}" autocomplete="off" size="2">
-                                        <a class="cart_quantity_down" href=""> - </a>
+                                        <form action="{{ url('/update-cart') }}" method="post">
+                                            @csrf
+                                            <input class="cart_quantity_input" type="text" name="quantity" value="{{$v_contents->qty}}" autocomplete="off" size="2">
+
+                                            <input type="hidden" name="rowId" value="{{$v_contents->rowId}}">
+                                            <input type="submit" name="update" value="update" class="cart_update">
+                                        </form>
                                     </div>
                                 </td>
                                 <td class="cart_total">
@@ -78,7 +82,7 @@ $getData = new MyController;
                             <li>Total <span>${{Cart::total()}}</span></li>
                         </ul>
                         <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out" href="">Check Out</a>
+                        <a class="btn btn-default check_out" href="{{ url('/login-check') }}">Check Out</a>
                     </div>
                 </div>
             </div>
@@ -86,3 +90,14 @@ $getData = new MyController;
     </section><!--/#do_action-->
 </div>
 @endsection
+<style>
+.cart_update{
+    padding:2px 10px;
+    margin: 0;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+form{
+    margin: 0;
+}    
+</style>

@@ -17,13 +17,18 @@ Route::get('/', 'HomeController@index');
 Route::get('/product-by-category/{id}', 'HomeController@product_by_category');
 Route::get('/product-by-manufacture/{id}', 'HomeController@product_by_manufacture');
 Route::get('/view-product/{id}', 'HomeController@view_product');
+
+//Frontend Cart Route.............................................................
 Route::post('/add-to-cart', 'CartController@add_to_cart');
 Route::post('/add-to-cart', 'CartController@add_to_cart');
 Route::get('/show-cart', 'CartController@show_cart');
 Route::get('/delete-cart/{id}', 'CartController@delete_cart');
+Route::post('/update-cart', 'CartController@update_cart');
 
-
-
+//Frontend checkout Route.........................................................
+Route::get('/login-check', 'CheckoutController@login_check');
+Route::post('/customer-registration', 'CheckoutController@customer_registration');
+Route::get('/checkout', 'CheckoutController@checkout');
 
 
 
