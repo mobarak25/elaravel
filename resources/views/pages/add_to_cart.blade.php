@@ -81,8 +81,14 @@ $getData = new MyController;
                             <li>Shipping Cost <span>Free</span></li>
                             <li>Total <span>${{Cart::total()}}</span></li>
                         </ul>
-                        <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out" href="{{ url('/login-check') }}">Check Out</a>
+                        <?php
+                            $customerId = Session::get('customer_id');
+                            if ($customerId != NULL) {?>
+                            <a class="btn btn-default check_out" href="{{ url('/checkout') }}">Check Out</a>
+                        <?php } else{ ?>
+                            <a class="btn btn-default check_out" href="{{ url('/login-check') }}">Check Out</a>
+                        <?php } ?>
+                        
                     </div>
                 </div>
             </div>

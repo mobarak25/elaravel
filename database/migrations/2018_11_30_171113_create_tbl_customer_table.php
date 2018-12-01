@@ -17,7 +17,7 @@ class CreateTblCustomerTable extends Migration
             $table->increments('customer_id');
             $table->string('customer_name');
             $table->string('customer_email',100);
-            $table->string('password',15);
+            $table->string('password',200);
             $table->string('mobile_number',15);
             $table->timestamps();
         });

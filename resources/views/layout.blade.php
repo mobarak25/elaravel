@@ -92,9 +92,22 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="{{ url('login-check') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                <?php
+                                    $customerId = Session::get('customer_id');
+                                    if ($customerId != NULL) {?>
+                                    <li><a href="{{ url('checkout') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                <?php } else{ ?>
+                                    <li><a href="{{ url('login-check') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                <?php } ?>
                                 <li><a href="{{ url('/show-cart') }}"><i class="fa fa-shopping-cart"></i> Cart<b class="countItm"> ({{Cart::count()}})</b></a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+
+                                <?php
+                                    $customerId = Session::get('customer_id');
+                                    if ($customerId != NULL) {?>
+                                    <li><a href="{{ url('/logout-customer') }}"><i class="fa fa-lock"></i> Logout</a></li>
+                                <?php } else{ ?>
+                                    <li><a href="{{ url('login-check') }}"><i class="fa fa-lock"></i> Login</a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>
@@ -116,14 +129,13 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html" class="active">Home</a></li>
+                                <li><a href="{{ url('/') }}" class="active">Home</a></li>
                                 <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
                                         <li><a href="product-details.html">Product Details</a></li> 
                                         <li><a href="{{ url('login-check') }}">Checkout</a></li> 
                                         <li><a href="cart.html">Cart</a></li> 
-                                        <li><a href="login.html">Login</a></li> 
                                     </ul>
                                 </li> 
                                 <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>

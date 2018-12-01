@@ -20,7 +20,6 @@ Route::get('/view-product/{id}', 'HomeController@view_product');
 
 //Frontend Cart Route.............................................................
 Route::post('/add-to-cart', 'CartController@add_to_cart');
-Route::post('/add-to-cart', 'CartController@add_to_cart');
 Route::get('/show-cart', 'CartController@show_cart');
 Route::get('/delete-cart/{id}', 'CartController@delete_cart');
 Route::post('/update-cart', 'CartController@update_cart');
@@ -29,15 +28,16 @@ Route::post('/update-cart', 'CartController@update_cart');
 Route::get('/login-check', 'CheckoutController@login_check');
 Route::post('/customer-registration', 'CheckoutController@customer_registration');
 Route::get('/checkout', 'CheckoutController@checkout');
-
-
+Route::post('/save-shipping-details', 'CheckoutController@save_shipping_details');
+Route::post('/customer-login', 'CheckoutController@customer_login');
+Route::get('/logout-customer', 'CheckoutController@logout_customer');
 
 
 
 
 //Backend Route.................................................................
-Route::get('/logout', 'SuperAdminController@logout');
 Route::get('/admin', 'AdminController@index');
+Route::get('/logout', 'SuperAdminController@logout');
 Route::get('/dashboard', 'AdminController@show_dashboard');
 Route::post('/admin-dashboard', 'AdminController@dashboard');
 
